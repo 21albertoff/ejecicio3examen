@@ -1,4 +1,4 @@
-package ejecicion3examen;
+package ejecicio3examen;
 
 import static org.junit.jupiter.api.Assertions.*;
 
