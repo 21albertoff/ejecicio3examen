@@ -1,27 +1,29 @@
-package ejecicio3examen;
+package ejecicio3exaemn;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
+class Ejercicio3Test {
 
-public class Ejercicio3Test {
-	
-	@Test
-	public void testSemana(){
-		assertEquals("lunes", ejercicio3.diaSemana(1));
-		assertEquals("martes", ejercicio3.diaSemana(2));
-		assertEquals("miercoles", ejercicio3.diaSemana(3));
-		assertEquals("jueves", ejercicio3.diaSemana(4));
-		assertEquals("viernes", ejercicio3.diaSemana(5));
-		assertEquals("sabado", ejercicio3.diaSemana(6));
-		assertEquals("domingo", ejercicio3.diaSemana(7));
-	}
-	
-	@Test
-	public void testSemanaMal() {
-		assertEquals("ERROR", ejercicio3.diaSemana(0));
-		assertEquals("ERROR", ejercicio3.diaSemana(9));
-		assertEquals("ERROR", ejercicio3.diaSemana(-5));
-	}
-	
+    @CsvSource({
+        "1,lunes",
+        "2,martes",
+        "3,miercoles",
+        "4,jueves",
+        "5,viernes",
+        "6,sabado",
+        "7,domingo",
+        "8,Error!"})
+    
+    @ParameterizedTest(name = "Prueba {index} => Con valor {0} sale {1}")
+    void testCadena_parametrized(int x, String cadena) {
+        // Arrange
+        Ejercicio3 e3 = new Ejercicio3();
+        // Act
+        // Assert
+        assertEquals(cadena, e3.diaSemana(x));
+    }
 }
